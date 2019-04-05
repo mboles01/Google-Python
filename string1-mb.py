@@ -77,10 +77,14 @@ def fix_start(s):
 #   'mix', pod' -> 'pox mid'
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
-def mix_up(a, b):
-  # +++your code here+++
-  return
+    
+a = 'mix'
+b = 'pod'
 
+def mix_up(a, b):
+  return b[0:2] + a[2:] + ' ' + a[0:2] + b[2:]
+
+mix_up(a,b)
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
