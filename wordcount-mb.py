@@ -37,30 +37,31 @@ print_words() and print_top().
 
 """
 
-import sys, os
-os.chdir('C:\\Users\\bolesmi\\Lam\\Coding\\Python\\2019\\Google\\basic')
+import sys, os, string
+#os.chdir('C:\\Users\\bolesmi\\Lam\\Coding\\Python\\2019\\Google\\basic')
 
-text = open('Alice.txt', 'r')
-content = text.read()
+def wordcount_dict(file):
+    wordcount = {}
+    text = open(file, 'r')
+    content = text.read()
+    content2 = content.lower()
+    content3 = content2.translate(None, string.punctuation)
+    content4 = content3.split()
+    for word in content4:
+        if not word in wordcount:
+            wordcount[word] = 1
+        else:
+            wordcount[word] = wordcount[word] + 1
+    return wordcount
+                
 
-# make lowercase and strip punctuation
-import string
-content2 = content.lower()
-content3 = content2.translate(None, string.punctuation)
 
-# split from one string into strings for individual words
-content4 = content3.split()
-
-# count number of appearances of each word
-from collections import Counter
-wordcount = Counter(content4)
 
 # sort dictionary by count
 import operator
-sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1))
-sortedwords_dict = dict(sortedwords)
+sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
 
-sortedwords[0][0]
+sortedwords[0:5]
 
 
 def print_words(filename):
