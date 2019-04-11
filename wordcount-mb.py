@@ -35,7 +35,9 @@ print_words() and print_top().
 # Then print_words() and print_top() can just call the utility function.
 
 import sys, os, string
-#os.chdir('C:\\Users\\bolesmi\\Lam\\Coding\\Python\\2019\\Google\\basic')
+
+#os.chdir('C:\\Users\\bolesmi\\Lam\\Coding\\Python\\2019\\Google\\basic') #PC
+os.chdir('/Users/michaelboles/Michael/Coding/2019/Google-Python') #mac
 
 """
 Write a helper utility function that reads a file
@@ -47,8 +49,8 @@ def wordcount_dict(file):
     text = open(file, 'r')
     content = text.read()
     content2 = content.lower()
-    content3 = content2.translate(None, string.punctuation)
-    content4 = content3.split()
+#    content3 = content2.translate(None, string.punctuation)
+    content4 = content2.split()
     for word in content4:
         if not word in wordcount:
             wordcount[word] = 1
@@ -56,54 +58,54 @@ def wordcount_dict(file):
             wordcount[word] = wordcount[word] + 1
     return wordcount
                 
-#wordcount = wordcount_dict('Alice.txt')
+wordcount = wordcount_dict('Alice.txt')
     
-
-"""
-1. Implement a print_words(filename) function that counts
-how often each word appears in the text and prints:
-word1 count1
-word2 count2
-"""
-def print_words(filename):
-    wordcount = wordcount_dict(filename)
-    wordcount_sorted = sorted(wordcount.keys())
-    for word in wordcount_sorted:
-        print word, wordcount[word]
-
-#print_words('Alice.txt')
-        
-
-    
-# sort dictionary by count
-import operator
-sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
-
-sortedwords[0:5]
-
-
-
-"""
-2. Implement a print_top(filename) which is similar to print_words() 
-but which prints just the top 20 most common words sorted
-so the most common word is first, then the next most common, and so on.
-"""
-
-
-
-# sort dictionary by count
-import operator
-sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
-
-sortedwords[0:5]
-
-
-    
-
-
-
-
-
+#
+#"""
+#1. Implement a print_words(filename) function that counts
+#how often each word appears in the text and prints:
+#word1 count1
+#word2 count2
+#"""
+#def print_words(filename):
+#    wordcount = wordcount_dict(filename)
+#    wordcount_sorted = sorted(wordcount.keys())
+#    for word in wordcount_sorted:
+#        print word, wordcount[word]
+#
+##print_words('Alice.txt')
+#        
+#
+#    
+## sort dictionary by count
+#import operator
+#sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
+#
+#sortedwords[0:5]
+#
+#
+#
+#"""
+#2. Implement a print_top(filename) which is similar to print_words() 
+#but which prints just the top 20 most common words sorted
+#so the most common word is first, then the next most common, and so on.
+#"""
+#
+#
+#
+## sort dictionary by count
+#import operator
+#sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
+#
+#sortedwords[0:5]
+#
+#
+#    
+#
+#
+#
+#
+#
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 def main():
