@@ -36,17 +36,17 @@ print_words() and print_top().
 
 import sys, os, string
 
-#os.chdir('C:\\Users\\bolesmi\\Lam\\Coding\\Python\\2019\\Google\\basic') #PC
-os.chdir('/Users/michaelboles/Michael/Coding/2019/Google-Python') #mac
+# os.chdir('C:\\Users\\bolesmi\\Lam\\Coding\\Python\\2019\\Google\\basic') #PC
+# os.chdir('/Users/michaelboles/Michael/Coding/2019/Google-Python') #mac
 
 """
 Write a helper utility function that reads a file
 and builds and returns a word/count dict for it.
 """
 
-def wordcount_dict(file):
+def wordcount_dict(filename):
     wordcount = {}
-    text = open(file, 'r')
+    text = open(filename, 'r')
     content = text.read()
     content2 = content.lower()
 #    content3 = content2.translate(None, string.punctuation)
@@ -106,11 +106,43 @@ wordcount = wordcount_dict('Alice.txt')
 #
 #
 #
+#wordcount = wordcount_dict('Alice.txt')
+
+
+"""
+1. Implement a print_words(filename) function that counts
+how often each word appears in the text and prints:
+word1 count1
+word2 count2
+"""
+def print_words(filename):
+    wordcount = wordcount_dict(filename)
+    wordcount_sorted = sorted(wordcount.keys())
+    for word in wordcount_sorted:
+        print(word, wordcount[word])
+
+
+"""
+2. Implement a print_top(filename) which is similar to print_words() 
+but which prints just the top 20 most common words sorted
+so the most common word is first, then the next most common, and so on.
+"""
+import operator
+filename = 'Alice.txt'
+wordcount = wordcount_dict(filename)
+
+def print_top(filename):
+    wordcount = wordcount_dict(filename)
+    sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
+    topcount = sortedwords[0:20]
+    for i in range(len(topcount)):
+        print(topcount[i][0], topcount[i][1])
+
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 def main():
   if len(sys.argv) != 3:
-    print 'usage: ./wordcount.py {--count | --topcount} file'
+    print('usage: ./wordcount.py {--count | --topcount} file')
     sys.exit(1)
 
   option = sys.argv[1]
@@ -120,7 +152,7 @@ def main():
   elif option == '--topcount':
     print_top(filename)
   else:
-    print 'unknown option: ' + option
+    print('unknown option: ' + option)
     sys.exit(1)
 
 if __name__ == '__main__':
