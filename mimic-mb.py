@@ -53,33 +53,33 @@ filename = 'Alice.txt'
 
 def mimic_dict(filename):
     """Given text file, generate dictionary with key - values: word - following words"""
+    import string
     content_temp1 = open(filename, 'r').read()
     content_temp2 = content_temp1.lower()
-    text = content_temp2.split()    
-    mimic_dict = {}                             # create empty dictionary
-    current_key = ''                            # seed with empty string as first key
-    for word in text:                           # loop over list of words
-        if not current_key in mimic_dict:       # if key not in dict, add key-value pair
+    content_temp3 = content_temp2.translate(str.maketrans('', '', string.punctuation))
+    text = content_temp3.split()    
+    mimic_dict = {}                                     # create empty dictionary
+    current_key = ''                                    # seed with empty string as first key
+    for word in text:                                   # loop over list of words
+        if not current_key in mimic_dict:               # if key not in dict, add key-value pair
             mimic_dict[current_key] = [word]
         else:
-            mimic_dict[current_key].append(word) # otherwise add value to existing key
-            current_key = word                  # advance one word within list of words
-    return mimic_dict, text
+            mimic_dict[current_key].append(word)        # otherwise add value to existing key
+        current_key = word                              # advance one word within list of words
+    return mimic_dict
 
-#mimic_dict('Alice.txt')
 
-def print_mimic(mimic_dict, text):
+def print_mimic(mimic_dict, word):
     """Given mimic dict and start word, prints 200 random words."""
     import random
-    word = random.choice(text)
-    mimic_list = [word]                           # start with seed word in mimic list
-    for index in range(199):                      # do the following 200 times:
-        next_words = mimic_dict[word]             # for seed word, look up following words
-        next_words_choice = random.choice(next_words) # choose one of those to be next
-        mimic_list.append(next_words_choice)      # add choice to end
-        word = next_words_choice                  # stage this last word for mimic dict lookup
-    mimic_list2 = ' '.join(mimic_list)
-    print(mimic_list2)
+    mimic_list_temp = [word]                            # start with seed word in mimic list
+    for index in range(199):                            # do the following 200 times:
+        next_words = mimic_dict[word]                   # for seed word, look up following words
+        next_words_choice = random.choice(next_words)   # choose one of those to be next
+        mimic_list_temp.append(next_words_choice)       # add choice to end
+        word = next_words_choice                        # stage this last word for mimic dict lookup
+    mimic_list = ' '.join(mimic_list_temp)
+    print(mimic_list)
 
 # Provided main(), calls mimic_dict() and mimic()
 def main():
