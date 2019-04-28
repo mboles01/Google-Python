@@ -13,7 +13,7 @@
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
 
-numbers = [1,2,2,3]
+#numbers = [1,2,2,3]
 
 def remove_adjacent(numbers):
     noadjacents = []
@@ -32,9 +32,9 @@ def remove_adjacent(numbers):
 # Ideally, the solution should work in "linear" time, making a single
 # pass of both lists.
     
-import numpy as np
-list1 = np.random.randint(0,10,5)
-list2 = np.random.randint(0,10,5)
+#import numpy as np
+#list1 = np.random.randint(0,10,5)
+#list2 = np.random.randint(0,10,5)
 
 def linear_merge(list1, list2):
     merged_list = sorted(np.append(list1,list2))
