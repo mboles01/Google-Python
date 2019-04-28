@@ -49,8 +49,8 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
       
-a = 'abcd'
-b = 'xy'        
+#a = 'abcd'
+#b = 'xy'        
     
 # If the string length is less than 3, leave it unchanged.
 def front_back(a, b):        
@@ -70,7 +70,7 @@ def front_back(a, b):
         b_back = b[(len(b)//2)+1:]
     return str(a_front + b_front + a_back + b_back)
         
-front_back(a,b)
+#front_back(a,b)
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
