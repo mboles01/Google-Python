@@ -30,11 +30,11 @@ def donuts(count):
     else:
         return 'Number of donuts: many'
 
-count = 5
-count = 10
-count = 15
-
-donuts(count)
+#count = 5
+#count = 10
+#count = 15
+#
+#donuts(count)
 
 # B. both_ends
 # Given a string s, return a string made of the first 2
@@ -49,11 +49,11 @@ def both_ends(s):
         ends = str(s[0:2]) + str(s[-2:])
     return ends
 
-s = 's'
-s = 'sp'
-s = 'spring'
-
-both_ends(s)
+#s = 's'
+#s = 'sp'
+#s = 'spring'
+#
+#both_ends(s)
 
 # C. fix_start
 # Given a string s, return a string
@@ -84,7 +84,7 @@ b = 'pod'
 def mix_up(a, b):
   return b[0:2] + a[2:] + ' ' + a[0:2] + b[2:]
 
-mix_up(a,b)
+#mix_up(a,b)
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
