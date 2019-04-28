@@ -21,7 +21,7 @@
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 
-words = ["word", "wordw", "swords"]
+#words = ["word", "wordw", "swords"]
 
 def match_ends(words):
     count = 0
@@ -30,7 +30,7 @@ def match_ends(words):
             count = count + 1
     return count
 
-match_ends(words)
+#match_ends(words)
 
 # B. front_x
 # Given a list of strings, return a list with the strings
@@ -40,7 +40,7 @@ match_ends(words)
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 
-words = ['mix', 'xyz', 'apple', 'xanadu', 'aardvark']
+#words = ['mix', 'xyz', 'apple', 'xanadu', 'aardvark']
 
 def front_x(words):
     x_words = []
@@ -52,7 +52,7 @@ def front_x(words):
             no_x_words.append(word)
     return sorted(x_words) + sorted(no_x_words)
 
-front_x(words)
+#front_x(words)
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
