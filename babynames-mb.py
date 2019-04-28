@@ -6,9 +6,6 @@
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
-import sys
-import re
-
 """Baby Names exercise
 
 Define the extract_names() function below and change main()
@@ -34,13 +31,9 @@ Suggested milestones for incremental development:
  -Fix main() to use the extract_names list
 """
 
+# Point to local directory containing html file 
 import sys, os
-os.chdir('/Users/michaelboles/Michael/Coding/2019/Google-Python/google-python-exercises/babynames')
-
-
-
-filename = 'baby1990.html'
-
+os.chdir('/Users/michaelboles/Michael/Coding/2019/Google-Python/babynames_html')
 
 def extract_names(filename):
   """
@@ -49,6 +42,7 @@ def extract_names(filename):
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
 
   """
+
   # open and read html file
   file = open(filename)
   text = file.read()
@@ -89,27 +83,41 @@ def extract_names(filename):
       name_rank_list.append(str(key) + ' ' + str(name_rank_dict[key]))
   return name_rank_list
 
+#names = extract_names('baby1990.html')
+
+# command line parsing code
 
 def main():
-  # This command-line parsing code is provided.
   # Make a list of command line arguments, omitting the [0] element
-  # which is the script itself.
+  # which is the script name itself
   args = sys.argv[1:]
 
+  # Correct user input: need at least 1 html filename, option to write summary file
   if not args:
-    print 'usage: [--summaryfile] file [file ...]'
+    print('usage: [--summaryfile] file [file ...]') # need one filename, summary option
     sys.exit(1)
 
-  # Notice the summary flag and remove it from args if it is present.
+  # Notice the summary flag and remove it from args if it is present
   summary = False
   if args[0] == '--summaryfile':
     summary = True
     del args[0]
 
-  # +++your code here+++
-  # For each filename, get the names, then either print the text output
+  # For each filename, get the names, then either print the ranked names list
   # or write it to a summary file
+  for filename in args:
+    names = extract_names(filename)   
+
+  # Make text out of the whole list
+    text = '\n'.join(names)
+
+  # If summary option selected, 
+  if summary:
+    output_summary = open(filename + '_summary.txt', 'w')
+    output_summary.write(text + '\n')
+    output_summary.close()
+  else:
+    print(text)
   
 if __name__ == '__main__':
-
   main()
