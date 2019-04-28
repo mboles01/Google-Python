@@ -82,7 +82,7 @@ def extract_names(filename):
   for key in name_rank_dict:
       name_rank_list.append(str(key) + ' ' + str(name_rank_dict[key]))
   return name_rank_list
-
+ 
 #names = extract_names('baby1990.html')
 
 # command line parsing code
