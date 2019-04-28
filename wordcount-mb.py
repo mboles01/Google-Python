@@ -58,55 +58,8 @@ def wordcount_dict(filename):
             wordcount[word] = wordcount[word] + 1
     return wordcount
                 
-wordcount = wordcount_dict('Alice.txt')
-    
-#
-#"""
-#1. Implement a print_words(filename) function that counts
-#how often each word appears in the text and prints:
-#word1 count1
-#word2 count2
-#"""
-#def print_words(filename):
-#    wordcount = wordcount_dict(filename)
-#    wordcount_sorted = sorted(wordcount.keys())
-#    for word in wordcount_sorted:
-#        print word, wordcount[word]
-#
-##print_words('Alice.txt')
-#        
-#
-#    
-## sort dictionary by count
-#import operator
-#sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
-#
-#sortedwords[0:5]
-#
-#
-#
-#"""
-#2. Implement a print_top(filename) which is similar to print_words() 
-#but which prints just the top 20 most common words sorted
-#so the most common word is first, then the next most common, and so on.
-#"""
-#
-#
-#
-## sort dictionary by count
-#import operator
-#sortedwords = sorted(wordcount.items(),key=operator.itemgetter(1),reverse=True)
-#
-#sortedwords[0:5]
-#
-#
-#    
-#
-#
-#
-#
-#
 #wordcount = wordcount_dict('Alice.txt')
+    
 
 
 """
