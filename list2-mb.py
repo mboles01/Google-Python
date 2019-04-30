@@ -32,7 +32,7 @@ def remove_adjacent(numbers):
 # Ideally, the solution should work in "linear" time, making a single
 # pass of both lists.
     
-#import numpy as np
+import numpy as np
 #list1 = np.random.randint(0,10,5)
 #list2 = np.random.randint(0,10,5)
 
