@@ -45,8 +45,9 @@ def donuts(count):
 def both_ends(s):
     if len(s) < 2:
         return ''
-    else:
-        ends = str(s[0:2]) + str(s[-2:])
+    else:        
+#       ends = str(s[0:2]) + str(s[-2:])
+        ends = s[:2] + s[-2:]
     return ends
 
 #s = 's'
@@ -82,7 +83,7 @@ a = 'mix'
 b = 'pod'
 
 def mix_up(a, b):
-  return b[0:2] + a[2:] + ' ' + a[0:2] + b[2:]
+  return b[:2] + a[2:] + ' ' + a[:2] + b[2:]
 
 #mix_up(a,b)
 
