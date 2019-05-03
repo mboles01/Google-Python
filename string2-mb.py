@@ -49,11 +49,14 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
       
-#a = 'abcd'
-#b = 'xy'        
+
+# Instructions say:     
+# "If the string length is less than 3, leave it unchanged"
+# But in test 1 (a = 'abcd', b = 'xy') correct answer is given as 'abxcdy'
+# So I'm ignoring the part about leaving unchanged a string with len(string) < 3        
     
-# If the string length is less than 3, leave it unchanged.
-def front_back(a, b):        
+def front_back(a, b):
+    # test a: even or odd, then split accordingly        
     if len(a) % 2 == 0:
         a_front = a[:len(a)//2]
         a_back = a[len(a)//2:]
@@ -68,6 +71,7 @@ def front_back(a, b):
     else:
         b_front = b[:(len(b)+2)//2]
         b_back = b[(len(b)//2)+1:]
+    # return the string mash-up 
     return str(a_front + b_front + a_back + b_back)
         
 #front_back(a,b)
