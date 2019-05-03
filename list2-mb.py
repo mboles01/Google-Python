@@ -32,13 +32,39 @@ def remove_adjacent(numbers):
 # Ideally, the solution should work in "linear" time, making a single
 # pass of both lists.
     
-import numpy as np
-#list1 = np.random.randint(0,10,5)
-#list2 = np.random.randint(0,10,5)
 
-def linear_merge(list1, list2):
-    merged_list = sorted(np.append(list1,list2))
+## not linear, but my preference due to simplicity
+# import numpy as np
+#def linear_merge(list1, list2):
+#    merged_list = sorted(np.append(list1,list2))
+#    return merged_list
+
+list1 = [3,5,1,3,6]
+list2 = [4,7,9,1,6]
+
+def linear_merge(list1,list2):
+    merged_list = []
+    if len(list1) > 0 and len(list2) > 0:
+        if list1[0] < list2[0]:
+            merged_list.append(list1.pop(0))
+        else:
+            merged_list.append(list2.pop(0))
+    elif len(list1) == 0:
+        merged_list.append(sorted(list2))
+    elif len(list2) == 0:
+        merged_list.append(sorted(list1))
+    else:
+        pass
     return merged_list
+
+#def linear_merge(list1, list2):
+#  merged_list = []
+#  while len(list1) and len(list2):
+#    if list1[0] < list2[0]:
+#      merged_list.append(list1.pop(0))
+#    else:
+#      merged_list.append(list2.pop(0))
+
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
 # is not constant time with the standard python list implementation, so
